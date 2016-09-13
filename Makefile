@@ -1,5 +1,5 @@
 
-CC = gcc
+# CC = gcc
 KVER  := $(shell uname -r)
 KSRC := /lib/modules/$(KVER)/build
 MODDESTDIR := /lib/modules/$(KVER)/kernel/drivers/net/wireless/rtlwifi
@@ -9,6 +9,7 @@ CLR_MODULE_FILES := *.mod.c *.mod *.o .*.cmd *.ko *~ .tmp_versions* modules.orde
 SYMBOL_FILE := Module.symvers
 
 EXTRA_CFLAGS += -O2
+EXTRA_CFLAGS += -Wno-error=implicit-function-declaration
 obj-m := rtlwifi.o
 PCI_MAIN_OBJS	:= base.o	\
 		usb.o   \
